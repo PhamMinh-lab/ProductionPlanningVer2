@@ -103,15 +103,15 @@ if section == "Project Process":
     axes[1].set_title("MSE")
     axes[2].set_title("R²")
 
-    st.subheader("MSE for Models")
+    st.subheader("MSE for Models (lower is better)")
     colors = ['red' if idx == 'Random Forest' else '#1f77b4' for idx in results_df.index]
     st.bar_chart(results_df[['MSE']].assign(color=colors).drop(columns='color'))
 
-    st.subheader("MAE for Models")
+    st.subheader("MAE for Models (lower is better)")
     colors = ['red' if idx == 'Random Forest' else '#1f77b4' for idx in results_df.index]
     st.bar_chart(results_df[['MAE']].assign(color=colors).drop(columns='color'))
 
-    st.subheader("R2 for Models")
+    st.subheader("R2 for Models (HighHigher is better)")
     colors = ['red' if idx == 'Random Forest' else '#1f77b4' for idx in results_df.index]
     st.bar_chart(results_df[['R2']].assign(color=colors).drop(columns='color'))
 
@@ -222,7 +222,7 @@ if section == "Project Overview":
     st.text("In the era of automation in manufacturing, effective production planning plays a crucial role in the efficiency of a business. In the traditional planning tasks, there are many problems such as inaccurate demand forecasting and poor production schedule, which leads to various negative consequences and affects to all parts of the supply chain.")
     st.subheader("Objective:")
     st.text("This project aims to integrate machine learning-based demand forecasting with optimization models to generate more accurate and efficient monthly production plans.")  
-    st.subheader("scenario:")
+    st.subheader("Scenario:")
     st.text("The inadequacy of the current forecasting methodology is clearly reflected in the data collected for the year 2024. Monthly comparisons between actual sales volume and production output reveal significant discrepancies, particularly during periods of heightened demand. For example, in January, the sales volume reached 123,404 units, whereas only 109,217 units were produced, resulting in a supply shortfall of over 14,000 units. Similarly, in December, sales volume reached 101,386 units, exceeding production output of 85,140 units by more than 16,000 units. Such patterns are not isolated cases but recur throughout the year, especially in months such as March, November, and December. These observations point to a fundamental weakness in the company’s ability to accurately forecast demand and align production capacity accordingly. While production may occasionally exceed sales in certain months such as April and May, the overall mismatch indicates a reactive production strategy rather than a proactive and forecast-driven one.")
     compare_production_sales = pd.read_excel("Book2.xlsx")
     st.area_chart(compare_production_sales, x='Month', y=['Production','Demand'],color=["#0000FF","#FF0000"], stack=False)
