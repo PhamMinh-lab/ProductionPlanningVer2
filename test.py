@@ -111,7 +111,7 @@ if section == "Project Process":
     colors = ['red' if idx == 'Random Forest' else '#1f77b4' for idx in results_df.index]
     st.bar_chart(results_df[['MAE']].assign(color=colors).drop(columns='color'))
 
-    st.subheader("R2 for Models (HighHigher is better)")
+    st.subheader("R2 for Models (Higher is better)")
     colors = ['red' if idx == 'Random Forest' else '#1f77b4' for idx in results_df.index]
     st.bar_chart(results_df[['R2']].assign(color=colors).drop(columns='color'))
 
